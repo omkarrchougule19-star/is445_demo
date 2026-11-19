@@ -10,9 +10,9 @@ import streamlit as st
 import altair as alt
 from vega_datasets import data
  
-st.title('My First Streamlit App')
+st.title('Streamlit App for IS445: ID38891')
 
-st.text("The URL for this app is: https://huggingface.co/spaces/jnaiman/is445_demo")
+st.text("The URL for this app is: https://is445-demo-id38891.streamlit.app")
 
 source = data.seattle_weather()
 
@@ -33,7 +33,7 @@ points = (
     alt.Chart()
     .mark_point()
     .encode(
-        alt.X("monthdate(date):T", title="Date"),
+        alt.X("monthdate(date):T", title="Date (Month Year)"),
         alt.Y(
             "temp_max:Q",
             title="Maximum Daily Temperature (C)",
@@ -63,7 +63,7 @@ bars = (
     .add_params(click)
 )
 
-chart = alt.vconcat(points, bars, data=source, title="Seattle Weather: 2012-2015")
+chart = alt.vconcat(points, bars, data=source, title="Seattle Weather - 2006 to 2016")
 
 tab1, tab2 = st.tabs(["Streamlit theme (default)", "Altair native theme"])
 
