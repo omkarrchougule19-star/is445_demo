@@ -47,7 +47,8 @@ bars = (
     alt.Chart(d1)
     .mark_bar()
     .encode(
-        y=alt.Y("Agency Name:N", sort="-x", title=None),
+        y=alt.Y("Agency Name:N", sort="-x", title=None,
+                axis=alt.Axis(labelLimit=320)),
         x=alt.X("sum(Square Footage):Q", title="Total floor space (sq ft)",
                 axis=alt.Axis(format="~s")),
         color=alt.condition(agency_sel, alt.value("#1f5a96"),
